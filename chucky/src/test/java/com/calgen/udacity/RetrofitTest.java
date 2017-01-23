@@ -10,7 +10,7 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Gurupad Mamadapur on 23-Jan-17.
@@ -24,6 +24,6 @@ public class RetrofitTest {
         Call<JokeResponse> call = apiClient.getJokeInterface().getJokes();
         Response<JokeResponse> response = call.execute();
 
-        assertEquals("Incorrect response : ", response.body().getResponseCode(), "success");
+        assertNotNull("Incorrect response : ", response.body().getJoke());
     }
 }

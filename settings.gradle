@@ -1,1 +1,1 @@
-include ':app', ':javajokelibrary'
+include ':app', ':chucky'

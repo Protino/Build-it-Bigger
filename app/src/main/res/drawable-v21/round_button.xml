@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@color/light_grey">
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/white"/>
+                    <padding
+                        android:bottom="48dp"
+                        android:left="48dp"
+                        android:right="48dp"
+                        android:top="48dp"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/chucky"/>
+        </layer-list>
+    </item>
+</ripple>

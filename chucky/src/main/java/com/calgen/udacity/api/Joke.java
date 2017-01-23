@@ -11,7 +11,7 @@ public class Joke {
     @SerializedName("id")
     @Expose
     private long id;
-    @SerializedName("jokeString")
+    @SerializedName("joke")
     @Expose
     private String jokeString;
     @SerializedName("categories")

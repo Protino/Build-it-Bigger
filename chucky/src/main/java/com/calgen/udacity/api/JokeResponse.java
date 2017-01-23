@@ -11,7 +11,7 @@ public class JokeResponse implements Serializable {
     @SerializedName("type")
     @Expose
     private String responseCode;
-    @SerializedName("joke")
+    @SerializedName("value")
     @Expose
     private Joke joke;
 
