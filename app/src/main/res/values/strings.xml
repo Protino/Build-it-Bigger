@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Build it Bigger</string>
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="JOKE_FETCH_ERROR">Couldn\'t fetch the joke.\n Make sure you\'re connected to the internet</string>
 </resources>

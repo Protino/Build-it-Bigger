@@ -7,10 +7,10 @@
                 <shape android:shape="oval">
                     <solid android:color="@color/white"/>
                     <padding
-                        android:bottom="48dp"
-                        android:left="48dp"
-                        android:right="48dp"
-                        android:top="48dp"/>
+                        android:bottom="64dp"
+                        android:left="64dp"
+                        android:right="64dp"
+                        android:top="64dp"/>
                 </shape>
             </item>
             <item android:drawable="@drawable/chucky"/>

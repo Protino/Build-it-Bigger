@@ -12,8 +12,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="udacity.calgen.com.builditbigger.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
     <Button
-        android:onClick="tellJoke"
+        android:id="@+id/jokeButton"
         android:layout_width="@dimen/button_dimen"
         android:layout_height="@dimen/button_dimen"
         android:layout_centerInParent="true"

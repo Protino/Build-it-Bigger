@@ -4,40 +4,31 @@ package com.calgen.udacity.api;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+import java.util.List;
 
-public class JokeResponse implements Serializable {
+public class JokeResponse {
 
     @SerializedName("type")
     @Expose
-    private String responseCode;
+    private String type;
     @SerializedName("value")
     @Expose
-    private Joke joke;
+    private List<Joke> jokeList = null;
 
-    public JokeResponse() {
+    public String getType() {
+        return type;
     }
 
-    public JokeResponse(String type, Joke joke) {
-        super();
-        this.responseCode = type;
-        this.joke = joke;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getResponseCode() {
-        return responseCode;
+    public List<Joke> getJokeList() {
+        return jokeList;
     }
 
-    public void setResponseCode(String responseCode) {
-        this.responseCode = responseCode;
-    }
-
-    public Joke getJoke() {
-        return joke;
-    }
-
-    public void setJoke(Joke joke) {
-        this.joke = joke;
+    public void setJokeList(List<Joke> jokeList) {
+        this.jokeList = jokeList;
     }
 
 }
