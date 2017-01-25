@@ -1,14 +1,15 @@
 package com.calgen.udacity;
 
-import com.calgen.udacity.api.ApiClient;
-import com.calgen.udacity.api.JokeResponse;
+import com.calgen.udacity.chucky.api.ApiInterface;
+import com.calgen.udacity.chucky.api.ServiceGenerator;
+import com.squareup.okhttp.OkHttpClient;
 
 import org.junit.Test;
 
 import java.io.IOException;
 
-import retrofit2.Call;
-import retrofit2.Response;
+import retrofit.RestAdapter;
+import retrofit.client.OkClient;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,10 +21,14 @@ public class RetrofitTest {
 
     @Test
     public void testGetJokes() throws IOException {
-        ApiClient apiClient = new ApiClient();
-        Call<JokeResponse> call = apiClient.getJokeInterface().getRandomJokes(5);
-        Response<JokeResponse> response = call.execute();
 
-        assertEquals("Incorrect response : ", 5, response.body().getJokeList().size());
+        //Manually building the RestAdapter because UrlFetchClient need appengine module
+        // and doesn't work during testing.
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint(ServiceGenerator.API_ENDPOINT_URL)
+                .setClient(new OkClient(new OkHttpClient()))
+                .build();
+        ApiInterface apiInterface = restAdapter.create(ApiInterface.class);
+        assertEquals("Incorrect response : ", 5, apiInterface.getRandomJokesSync(5).getJokeList().size());
     }
 }

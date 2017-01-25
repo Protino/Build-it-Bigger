@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.34'
+    }
+}
+
+repositories {
+    mavenCentral();
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'appengine'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+dependencies {
+    compile project(':chucky')
+
+    compile 'com.google.appengine:appengine-endpoints:1.9.34'
+    compile 'com.google.appengine:appengine-endpoints-deps:1.9.34'
+    compile 'javax.servlet:servlet-api:2.5'
+
+    compile 'com.googlecode.objectify:objectify:5.1.14'
+}
+
+appengine {
+    downloadSdk = false
+    appcfg {
+        oauth2 = false
+    }
+    endpoints {
+        getClientLibsOnBuild = true
+        getDiscoveryDocsOnBuild = true
+    }
+}

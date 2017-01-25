@@ -27,15 +27,13 @@ dependencies {
     compile project(':chucky')
     compile project(':joker')
 
-    testCompile 'junit:junit:4.12'
-
+    compile project(path: ':api', configuration: 'android-endpoints')
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.google.firebase:firebase-ads:10.0.0'
-
-
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
-
 
 apply plugin: 'com.google.gms.google-services'
