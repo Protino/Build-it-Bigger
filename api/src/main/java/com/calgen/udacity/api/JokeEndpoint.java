@@ -58,6 +58,7 @@ public class JokeEndpoint {
         if ((timeSinceLastInsert - currentTime) > Properties.UPDATE_INTERVAL
                 || list(null, null).getItems().isEmpty()) {
             JokeFetch jokeFetch = new JokeFetch();
+            deleteAll();
             insertList(parse(jokeFetch.getJokesList(Properties.NUMBER_OF_JOKES)));
         }
     }
@@ -68,6 +69,10 @@ public class JokeEndpoint {
             jokeList.add(new Joke(joke.getId(), joke.getJokeString()));
         }
         return new JokeListWrapper(jokeList);
+    }
+
+    public void deleteAll() {
+        ofy().delete().keys(ofy().load().type(Joke.class).keys()).now();
     }
 
     /**

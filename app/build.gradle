@@ -13,8 +13,14 @@ android {
     }
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_ENDPOINT_ADDRESS", '"https://sunshine-149409.appspot.com/_ah/api/"'
+        }
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_ENDPOINT_ADDRESS", '"http://10.0.2.2:8080/_ah/api/"'
         }
     }
 }

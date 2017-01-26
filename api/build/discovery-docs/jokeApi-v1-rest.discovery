@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/oS4nChan7o2Y0SJYOswrFwGcyuo\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/KRvJmrlSLKLIm3bOXfPDdTwyLCE\"",
  "discoveryVersion": "v1",
  "id": "jokeApi:v1",
  "name": "jokeApi",
@@ -13,9 +13,9 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rest",
- "baseUrl": "https://myApplicationId.appspot.com/_ah/api/jokeApi/v1/",
+ "baseUrl": "https://sunshine-149409.appspot.com/_ah/api/jokeApi/v1/",
  "basePath": "/_ah/api/jokeApi/v1/",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "rootUrl": "https://sunshine-149409.appspot.com/_ah/api/",
  "servicePath": "jokeApi/v1/",
  "batchPath": "batch",
  "parameters": {
@@ -269,6 +269,20 @@
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
    ]
+  }
+ },
+ "resources": {
+  "joke": {
+   "methods": {
+    "deleteAll": {
+     "id": "jokeApi.joke.deleteAll",
+     "path": "joke",
+     "httpMethod": "DELETE",
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
   }
  }
 }

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
 
-        private static final String ENDPOINT_URL = "https://sunshine-149409.appspot.com/_ah/api/";
+        private final String ENDPOINT_URL = BuildConfig.API_ENDPOINT_ADDRESS;
         private final String LOG_TAG = EndpointAsyncTask.class.getSimpleName();
         private JokeApi jokeApiService;
         private Context context;

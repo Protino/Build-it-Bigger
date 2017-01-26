@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/oS4nChan7o2Y0SJYOswrFwGcyuo\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/KRvJmrlSLKLIm3bOXfPDdTwyLCE\"",
  "discoveryVersion": "v1",
  "id": "jokeApi:v1",
  "name": "jokeApi",
@@ -13,8 +13,8 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rpc",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
- "rpcUrl": "https://myApplicationId.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://sunshine-149409.appspot.com/_ah/api/",
+ "rpcUrl": "https://sunshine-149409.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
@@ -173,6 +173,12 @@
    "returns": {
     "$ref": "JokeListWrapper"
    },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "jokeApi.joke.deleteAll": {
+   "id": "jokeApi.joke.deleteAll",
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
    ]
