@@ -60,6 +60,7 @@ public class JokeEndpoint {
             JokeFetch jokeFetch = new JokeFetch();
             deleteAll();
             insertList(parse(jokeFetch.getJokesList(Properties.NUMBER_OF_JOKES)));
+            ofy().save().entity(new Properties(Properties.ID,currentTime)).now();
         }
     }
 
@@ -93,6 +94,14 @@ public class JokeEndpoint {
             throw new NotFoundException("Could not find Joke with ID: " + id);
         }
         return joke;
+    }
+
+    @ApiMethod(
+            name = "getProperties",
+            path = "properties",
+            httpMethod = ApiMethod.HttpMethod.GET)
+    public Properties getProperties(){
+        return ofy().load().type(Properties.class).id(Properties.ID).now();
     }
 
     /**

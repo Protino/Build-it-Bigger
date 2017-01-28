@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/KRvJmrlSLKLIm3bOXfPDdTwyLCE\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/MD6CARHNzj4MPNaO1Ql-ZAYGHR8\"",
  "discoveryVersion": "v1",
  "id": "jokeApi:v1",
  "name": "jokeApi",
@@ -110,6 +110,20 @@
      }
     }
    }
+  },
+  "Properties": {
+   "id": "Properties",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "timestamp": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
   }
  },
  "methods": {
@@ -128,6 +142,16 @@
    ],
    "returns": {
     "$ref": "Joke"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "jokeApi.getProperties": {
+   "id": "jokeApi.getProperties",
+   "allowGet": true,
+   "returns": {
+    "$ref": "Properties"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

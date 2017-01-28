@@ -18,6 +18,9 @@ public class Properties {
     private long id;
     private long timestamp;
 
+    public Properties(){
+        //Required empty constructor.
+    }
 
     public Properties(long id, long timestamp) {
         this.id = id;

@@ -22,3 +22,41 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+task launchLocalGAE {
+    doFirst{
+        println "**** Starting connected tests ****"
+        println "Local GAE server is now running in daemon mode"
+    }
+    dependsOn ":api:appengineRun"
+    evaluationDependsOn(':api')
+    project(':api').appengine.daemon = true
+}
+
+task launchConnectedTests {
+    dependsOn ":app:connectedAndroidTest"
+    mustRunAfter launchLocalGAE
+    doFirst{
+        println "Running connected android tests associated with all build variants."
+    }
+}
+
+task stopLocalGAE {
+    dependsOn ":api:appengineStop"
+    doLast{
+        println "Local GAE server shutdown"
+    }
+}
+
+//GAE needs to be shutdown regardless of how connectedTests turn out be
+//But, this solution doesn't work
+launchConnectedTests.finalizedBy stopLocalGAE
+
+task connectedTests {
+    description "Runs all the connected tests associated with debug variants"
+    dependsOn = [launchLocalGAE, launchConnectedTests, stopLocalGAE]
+    doLast{
+        println "**** Connected tests successfully completed ****"
+    }
+}

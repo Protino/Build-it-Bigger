@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'password'
+            keyPassword 'password'
+            storeFile file('H:/Android/Workspace/Keystore/dummy.jks')
+            storePassword 'password'
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -14,32 +22,49 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_ENDPOINT_ADDRESS", '"https://sunshine-149409.appspot.com/_ah/api/"'
+            signingConfig signingConfigs.config
         }
         debug {
+            applicationIdSuffix ".debug"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //The following address only works for android emulator and not on real devices
             buildConfigField "String", "API_ENDPOINT_ADDRESS", '"http://10.0.2.2:8080/_ah/api/"'
         }
+    }
+    productFlavors {
+        free {
+            applicationId "udacity.calgen.com.builditbigger.free"
+        }
+        paid {
+            applicationId "udacity.calgen.com.builditbigger.paid"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':chucky')
     compile project(':joker')
-
     compile project(path: ':api', configuration: 'android-endpoints')
     compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.google.firebase:firebase-ads:10.0.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'com.android.support:support-v4:25.0.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    freeCompile 'com.google.firebase:firebase-ads:10.0.0'
 }
+
 
 apply plugin: 'com.google.gms.google-services'
