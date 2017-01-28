@@ -60,12 +60,12 @@ public class JokeEndpoint {
     @ApiMethod(
             name = "updateJokes",
             path = "updateJokes",
-            httpMethod = ApiMethod.HttpMethod.POST
+            httpMethod = ApiMethod.HttpMethod.GET
     )
-    private void updateJokesList() {
+    public JokeListWrapper updateJokesList() {
         JokeFetch jokeFetch = new JokeFetch();
         deleteAll();
-        insertList(parse(jokeFetch.getJokesList(NUMBER_OF_JOKES)));
+        return insertList(parse(jokeFetch.getJokesList(NUMBER_OF_JOKES)));
     }
 
     public void deleteAll() {

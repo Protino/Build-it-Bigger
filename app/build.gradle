@@ -21,8 +21,6 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_ENDPOINT_ADDRESS", '"https://sunshine-149409.appspot.com/_ah/api/"'
             signingConfig signingConfigs.config

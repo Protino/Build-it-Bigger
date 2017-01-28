@@ -6,8 +6,6 @@ import android.util.Log;
 import com.calgen.udacity.api.jokeApi.JokeApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
-import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 
@@ -15,13 +13,7 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
 
     private static final JokeApi jokeApiService = new JokeApi.Builder(AndroidHttp.newCompatibleTransport(),
             new AndroidJsonFactory(), null)
-            .setRootUrl(BuildConfig.API_ENDPOINT_ADDRESS)
-            .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                @Override
-                public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
-                    request.setDisableGZipContent(true);
-                }
-            }).build();
+            .setRootUrl(BuildConfig.API_ENDPOINT_ADDRESS).build();
 
     private final String LOG_TAG = EndpointAsyncTask.class.getSimpleName();
     private EndPointCallback endpointCallback;
