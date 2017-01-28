@@ -1,8 +1,7 @@
-package com.calgen.udacity.api;
+package com.calgen.udacity.api.endpoint;
 
 import com.calgen.udacity.api.model.Joke;
 import com.calgen.udacity.api.model.JokeListWrapper;
-import com.calgen.udacity.api.model.Properties;
 import com.calgen.udacity.chucky.JokeFetch;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -40,36 +39,33 @@ public class JokeEndpoint {
     private static final Logger logger = Logger.getLogger(JokeEndpoint.class.getName());
     private static final int DEFAULT_LIST_LIMIT = 20;
     private static final Random random = new Random();
+    private static final int NUMBER_OF_JOKES = 50;
 
     static {
         ObjectifyService.register(Joke.class);
-        ObjectifyService.register(Properties.class);
-        Properties properties = new Properties(Properties.ID, System.currentTimeMillis());
-        ofy().save().entity(properties).now();
     }
 
     public JokeEndpoint() {
         updateJokesList();
     }
 
-    private void updateJokesList() {
-        long currentTime = System.currentTimeMillis();
-        long timeSinceLastInsert = ofy().load().type(Properties.class).id(Properties.ID).now().getTimestamp();
-        if ((timeSinceLastInsert - currentTime) > Properties.UPDATE_INTERVAL
-                || list(null, null).getItems().isEmpty()) {
-            JokeFetch jokeFetch = new JokeFetch();
-            deleteAll();
-            insertList(parse(jokeFetch.getJokesList(Properties.NUMBER_OF_JOKES)));
-            ofy().save().entity(new Properties(Properties.ID,currentTime)).now();
-        }
-    }
-
-    private JokeListWrapper parse(List<com.calgen.udacity.chucky.api.Joke> jokesList) {
-        List<Joke> jokeList = new ArrayList<>();
+    public static JokeListWrapper parse(List<com.calgen.udacity.chucky.api.Joke> jokesList) {
+        List<com.calgen.udacity.api.model.Joke> jokeList = new ArrayList<>();
         for (com.calgen.udacity.chucky.api.Joke joke : jokesList) {
-            jokeList.add(new Joke(joke.getId(), joke.getJokeString()));
+            jokeList.add(new com.calgen.udacity.api.model.Joke(joke.getId(), joke.getJokeString()));
         }
         return new JokeListWrapper(jokeList);
+    }
+
+    @ApiMethod(
+            name = "updateJokes",
+            path = "updateJokes",
+            httpMethod = ApiMethod.HttpMethod.POST
+    )
+    private void updateJokesList() {
+        JokeFetch jokeFetch = new JokeFetch();
+        deleteAll();
+        insertList(parse(jokeFetch.getJokesList(NUMBER_OF_JOKES)));
     }
 
     public void deleteAll() {
@@ -94,14 +90,6 @@ public class JokeEndpoint {
             throw new NotFoundException("Could not find Joke with ID: " + id);
         }
         return joke;
-    }
-
-    @ApiMethod(
-            name = "getProperties",
-            path = "properties",
-            httpMethod = ApiMethod.HttpMethod.GET)
-    public Properties getProperties(){
-        return ofy().load().type(Properties.class).id(Properties.ID).now();
     }
 
     /**

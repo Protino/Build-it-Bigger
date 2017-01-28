@@ -39,9 +39,7 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        if (endpointCallback != null) {
-            endpointCallback.onComplete(result);
-        }
+        endpointCallback.onComplete(result);
     }
 
     /**
