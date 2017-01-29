@@ -10,17 +10,14 @@ BUILD IT BIGGER
 * [License](#licnese)
 
 ### About
-This android application is part of the [Udacity Android Developer Nanodegree].
-This project was all about managing projects with multiple modules and
-libraries. It also included handling of different flavors and build
-variants. All this problems are easily handled with gradle's build power.
-It allowed to automate simple tasks and make life easier.
+This android application is part of the [Udacity Android Developer Nanodegree]. This project was all about managing projects with multiple modules and libraries.
+It also included handling of different flavors and build variants. All these problems are easily handled by gradle as it allows to automate complex tasks, hence making life easier.
 
 I also dabbled a bit more into Google App Engine and testing.
 
 ```
 Project Overview
- In this project, you will create an app with multiple flavors that uses multiple libraries and Google Cloud Endpoints. The finished appwill consist of four modules:
+ In this project, you will create an app with multiple flavors that uses multiple libraries and Google Cloud Endpoints. The finished app will consist of four modules:
 
   1. A Java library that provides jokes.
   2. A Google Cloud Endpoints (GCE) project that serves those jokes.
@@ -86,7 +83,7 @@ What Will I Learn?
  | Paid          | udacity.calgen.com.builditbigger.paid
  | Free-Debug    | udacity.calgen.com.builditbigger.free.debug
  | Paid-Release  | udacity.calgen.com.builditbigger.paid.release
- <i>*Default package name can be different, but the suffixes should be appropriate.
+ <i>*Default package name can be different, but the suffixes should be appropriate.</i>
  </div>
 
 * <b>Testing</b>
