@@ -38,8 +38,8 @@ public class RetrofitTest {
     @Test
     public void testGetJokes() throws IOException {
 
-        //Manually building the RestAdapter because UrlFetchClient need appengine module
-        // and doesn't work during testing.
+        //Building the RestAdapter again because UrlFetchClient needs appengine module
+        // and doesn't work during testing. Also, OkClient is not supported by GCE
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(ServiceGenerator.API_ENDPOINT_URL)
                 .setClient(new OkClient(new OkHttpClient()))

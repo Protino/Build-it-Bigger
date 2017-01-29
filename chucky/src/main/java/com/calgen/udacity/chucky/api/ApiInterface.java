@@ -26,9 +26,9 @@ import retrofit.http.Path;
 
 public interface ApiInterface {
 
-    @GET("/jokes/random/{number}/")
+    @GET("/jokes/random/{number}?limitTo=[nerdy]")
     JokeResponse getRandomJokesSync(@Path("number") int numberOfJokes);
 
-    @GET("/jokes/random/{number}/")
+    @GET("/jokes/random/{number}?limitTo=[nerdy]")
     void getRandomJokesAsync(@Path("number") int numberOfJokes, Callback<JokeResponse> callback);
 }

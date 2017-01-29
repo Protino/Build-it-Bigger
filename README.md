@@ -73,40 +73,37 @@ What Will I Learn?
 
  Add `google-services.json` file in `/app` directory. Make sure that it contains four sub apps with relevant package names show in the table below.
 
- <div align=center>
- <br/>
-
  | Variant       | Package name<sp>*</sp>  |
  |:------------- |:-------------|
- | Release        | udacity.calgen.com.builditbigger  (Don't append .release !)
- | Free          | udacity.calgen.com.builditbigger.free
- | Paid          | udacity.calgen.com.builditbigger.paid
- | Free-Debug    | udacity.calgen.com.builditbigger.free.debug
- | Paid-Release  | udacity.calgen.com.builditbigger.paid.release
+ | Release        | udacity.calgen.com.builditbigger  (Don't append .release !)|
+ | Free          | udacity.calgen.com.builditbigger.free|
+ | Paid          | udacity.calgen.com.builditbigger.paid|
+ | Free-Debug    | udacity.calgen.com.builditbigger.free.debug|
+ | Paid-Release  | udacity.calgen.com.builditbigger.paid.release|
  <i>*Default package name can be different, but the suffixes should be appropriate.</i>
- </div>
 
 * <b>Testing</b>
 
  All debug variants will have endpoint address mapping to localhost:8080. If you want to test them make sure you first launch local endpoint server by running task `api:appengineRun`. Then set property `API_ENDPOINT_ADDRESS` appropriately as shown below.
 
     ```groovy
-        buildTypes {
-            release {
-                ....
-                buildConfigField "String", "API_ENDPOINT_ADDRESS", '"https://sunshine-149409.appspot.com/_ah/api/"'
-                ....
-            }
-            debug {
-                ....
-                //The following address only works for android emulator. Change it to ipv4 address for real devices.
-                buildConfigField "String", "API_ENDPOINT_ADDRESS", '"http://10.0.2.2:8080/_ah/api/"'
-                ....
-            }
+    buildTypes {
+        release {
+            ....
+            buildConfigField "String", "API_ENDPOINT_ADDRESS", '"https://sunshine-149409.appspot.com/_ah/api/"'
+            ....
         }
+        debug {
+            ....
+            //The following address only works for android emulator. Change it to ipv4 address for real devices.
+            buildConfigField "String", "API_ENDPOINT_ADDRESS", '"http://10.0.2.2:8080/_ah/api/"'
+            ....
+        }
+    }
     ```
 
     To run all connected tests run task `connectedTests` and make sure it is the debug variant you're testing. To test release variants set `testBuildType = "release"` in `android` configuration block in `app/build.gradle`
+    Check out release variants in [Releases] tab.
 
 ### License
     Copyright 2016 Gurupad Mamadapur
