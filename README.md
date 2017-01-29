@@ -61,7 +61,7 @@ What Will I Learn?
 
 ### Screenshots
 <p align="center">
-<img src="/assets/cover.png?raw=true" width="400" height="600" alt="Cover">
+<img src="/assets/cover.png?raw=true" width="480" height="600" alt="Cover">
 </p>
 
 ### Build Configuration
