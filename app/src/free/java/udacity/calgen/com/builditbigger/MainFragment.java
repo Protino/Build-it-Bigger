@@ -1,3 +1,19 @@
+/*
+ * Copyright 2016 Gurupad Mamadapur
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package udacity.calgen.com.builditbigger;
 
 
@@ -24,14 +40,12 @@ import udacity.calgen.com.joker.JokeActivity;
 
 public class MainFragment extends Fragment implements EndpointAsyncTask.EndPointCallback {
 
-    private static final String LOG_TAG = MainFragment.class.getSimpleName();
-
     //@formatter:off
-    @BindView(R.id.progressBar) ProgressBar progressBar;
-    @BindView(R.id.jokeButton) Button jokeButton;
-    @BindView(R.id.adView) AdView adView;
-    @BindString(R.string.interstitial_ad_unit_id) String interstitialAdUnitId;
-    @BindString(R.string.joke_fetch_error) String errorString;
+    @BindView(R.id.progressBar) public ProgressBar progressBar;
+    @BindView(R.id.jokeButton) public Button jokeButton;
+    @BindView(R.id.adView) public AdView adView;
+    @BindString(R.string.interstitial_ad_unit_id) public String interstitialAdUnitId;
+    @BindString(R.string.joke_fetch_error) public String errorString;
     //@formatter:on
 
     private InterstitialAd interstitialAd;
@@ -66,6 +80,12 @@ public class MainFragment extends Fragment implements EndpointAsyncTask.EndPoint
             @Override
             public void onAdFailedToLoad(int i) {
                 super.onAdFailedToLoad(i);
+                requestNewInterstitial();
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
                 requestNewInterstitial();
             }
 

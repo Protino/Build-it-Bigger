@@ -18,12 +18,10 @@ import udacity.calgen.com.joker.JokeActivity;
 
 public class MainFragment extends Fragment implements EndpointAsyncTask.EndPointCallback {
 
-    private static final String LOG_TAG = MainFragment.class.getSimpleName();
-
     //@formatter:off
-    @BindView(R.id.progressBar) ProgressBar progressBar;
-    @BindView(R.id.jokeButton) Button jokeButton;
-    @BindString(R.string.joke_fetch_error) String errorString;
+    @BindView(R.id.progressBar) public ProgressBar progressBar;
+    @BindView(R.id.jokeButton) public Button jokeButton;
+    @BindString(R.string.joke_fetch_error) public String errorString;
     //@formatter:on
 
     //Lifecycle start
