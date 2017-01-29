@@ -60,8 +60,9 @@ What Will I Learn?
 * Connected android tests and a bit of espresso (not used in the project).
 
 ### Screenshots
-
-![Cover](/assets/cover.png?raw=true)
+<p align="center">
+<img src="/assets/cover.png?raw=true" width="400" height="600" alt="Cover">
+</p>
 
 ### Build Configuration
 
@@ -70,7 +71,6 @@ What Will I Learn?
  You can configure by either setting property `systemProp.appengine.sdk.root = <PATH_TO_SDK_V1.9.34>` or by manually adding dependency in `/api/build.gradle` and setting `downloadSk = true` in `appengine` configuration block.
 
 * <b>Firebase configuration</b>
-
  Add `google-services.json` file in `/app` directory. Make sure that it contains four sub apps with relevant package names show in the table below.
 
  | Variant       | Package name<sp>*</sp>  |
