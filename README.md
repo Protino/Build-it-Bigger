@@ -1,0 +1,2 @@
+# Build-it-Bigger
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d237ff087c6848209394562a50c8a62e)](https://www.codacy.com/app/gurupadmamadapur/Build-it-Bigger?utm_source=github.com&utm_medium=referral&utm_content=Protino/Build-it-Bigger&utm_campaign=badger)
