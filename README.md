@@ -75,12 +75,16 @@ What Will I Learn?
 
  | Variant       | Package name<sp>*</sp>  |
  |:------------- |:-------------|
- | Release        | udacity.calgen.com.builditbigger  (Don't append .release !)|
+ | Release<sp>#</sp>        | udacity.calgen.com.builditbigger  (Don't append .release !)|
  | Free          | udacity.calgen.com.builditbigger.free|
  | Paid          | udacity.calgen.com.builditbigger.paid|
  | Free-Debug    | udacity.calgen.com.builditbigger.free.debug|
- | Paid-Release  | udacity.calgen.com.builditbigger.paid.release|
- <i>*Default package name can be different, but the suffixes should be appropriate.</i>
+ | Paid-Debug  | udacity.calgen.com.builditbigger.paid.debug|
+
+ <i>* Default package name can be different, but the suffixes should be appropriate.</i>
+
+ <i># This is the default variant, you can explicitly state so using .release suffix, but it's better this way so that there are no multiple folders</i>
+
 
 * <b>Testing</b>
 
